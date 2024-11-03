@@ -1,41 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Danish K">
-    <link rel="stylesheet" href="style.css">
-    <title>Sign Up</title>
-
+    <meta charset="utf-8" />
+    <title>Image gallery</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div class="container">
-        <h1>Sign Up</h1>
-        <form action="#" method="POST">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="example@company.com" required />
-
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="" required />
-            <span id="namerror" class="error"></span>
-
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="••••••••" required />
-            <span id="passerror" class="error"></span>
-
-            <label for="confirm_password">Confirm Password</label>
-            <input type="password" name="confirm_password" id="confirm_password" placeholder="••••••••" required />
-            <span id="confirm_passerror" class="error"></span>
-
-            <button type="submit">Create account</button>
-            <span id="submit_message" class="success"></span>
-        </form>
-        <p class="footer">
-            Already have an account? <a href="#">Sign in</a>
-        </p>
+    <h1>Image Gallery</h1>
+    <div class="full-img">
+        <img class="displayed-img" src="assets/pic2.jpg" alt="Closeup of a human eye" />
+        <div class="overlay"></div>
+        <button class="dark">Darken</button>
     </div>
+
+    <div class="thumb-bar"></div>
     <script src="script.js"></script>
 </body>
 

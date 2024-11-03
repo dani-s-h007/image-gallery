@@ -1,82 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
 body {
-    background-color: #E3F2FD;
-    color: #333;
     font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    max-width: 400px;
-    width: 100%;
-}
-
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  
+  h1 {
     text-align: center;
-}
-
-label {
+  }
+  
+  .full-img {
+    position: relative;
     display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-input:focus {
-    border-color: #42a5f5;
-    outline: none;
-}
-
-button {
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 10px;
-    background-color: #1E88E5;
-    color: white;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s;
+  }
+  
+  button {
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    background: rgba(150, 150, 150, 0.6);
+    text-shadow: 1px 1px 1px white;
+    border: 1px solid #999;
+    position: absolute;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #1976D2;
-}
-
-.error {
-    color: red;
-    font-size: 14px;
-}
-
-.success {
-    color: green;
-    text-align: center;
-}
-
-.footer {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
-}
-
-.footer a {
-    color: #1E88E5;
-    text-decoration: none;
-}
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+  }
+  
+  .thumb-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .thumb-bar img {
+    width: calc(20% - 5px);
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .thumb-bar img:hover {
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      padding: 0 5px;
+    }
+  
+    .thumb-bar img {
+      width: calc(25% - 5px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .thumb-bar img {
+      width: calc(50% - 5px);
+    }
+  }
+  

@@ -1,41 +1,27 @@
-const form = document.querySelector('form');
-const passError = document.querySelector('#passerror');
-const confirmPassError = document.querySelector('#confirm_passerror');
-const nameError = document.querySelector('#namerror');
-const submitMessage = document.querySelector('#submit_message');
+const displayedImage = document.querySelector(".displayed-img");
+const thumbBar = document.querySelector(".thumb-bar");
+const btn = document.querySelector("button");
+const overlay = document.querySelector(".overlay");
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let isValid = true;
-    nameError.textContent = '';
-    passError.textContent = '';
-    confirmPassError.textContent = '';
-    submitMessage.textContent = '';
-
-    const formData = new FormData(e.target);
-    const data = {
-        username: formData.get('username'),
-        password: formData.get('password'),
-        confirm_password: formData.get('confirm_password')
-    };
-    if (!data.username || data.username.length < 3) {
-        isValid = false;
-        nameError.textContent = data.username ?
-            'Username must be at least 3 characters long' :
-            'Username is required';
-    }
-    if (!data.password || data.password.length < 8) {
-        isValid = false;
-        passError.textContent = data.password ?
-            'Password must be at least 8 characters long' :
-            'Password is required';
-    }
-    if (data.password !== data.confirm_password) {
-        isValid = false;
-        confirmPassError.textContent = 'Passwords do not match';
-    }
-    if (isValid) {
-        form.reset();
-        submitMessage.textContent = 'Signup successful!';
-    }
+const images = [
+  { src: "assets/pic1.jpg", alt: "Closeup of a human eye" },
+  { src: "assets/pic2.jpg", alt: "Abstract Drawing" },
+  { src: "assets/pic3.jpg", alt: "Flowers" },
+  { src: "assets/pic4.jpg", alt: "Ancient Drawing" },
+  { src: "assets/pic5.jpg", alt: "Butterfly" },
+];
+images.forEach(({ src, alt }) => {
+  const newImage = document.createElement("img");
+  newImage.src = src;
+  newImage.alt = alt;
+  newImage.addEventListener("click", () => {
+    displayedImage.src = src;
+    displayedImage.alt = alt;
+  });
+  thumbBar.appendChild(newImage);
+});
+btn.addEventListener("click", () => {
+  const isDark = btn.classList.toggle("dark");
+  btn.innerText = isDark ? "Lighten" : "Darken";
+  overlay.style.backgroundColor = isDark ? "rgba(0, 0, 0, 0.5)" : "transparent";
 });
